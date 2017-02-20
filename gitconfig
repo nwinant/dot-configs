@@ -1,0 +1,11 @@
+[user]
+        name = Nathan Winant
+        email = nw@exegetic.net
+[credential]
+        helper = cache --timeout=3600
+[diff]
+        tool = meld
+[difftool]
+        prompt = false
+[push]
+        default = simple
