@@ -24,6 +24,16 @@ export HISTFILESIZE=$(($HISTSIZE * 10))
 #export HISTCONTROL="erasedups:ignorespace"
 
 
+
+# ==========  PATHS  ==========================================================
+
+export CDPATH=.
+
+PATH=$SCRIPTS_HOME:$($BASHRC_D/bin/dot-config-paths):$BIN_DIR:$PATH
+
+export PATH
+
+
 # ==========  SOURCE EXTERNAL CONFIGS  ========================================
 
 source_bash_dir() {
@@ -37,14 +47,5 @@ source_bash_dir() {
 
 source_bash_dir ~/.bashrc.d/lib
 source_bash_dir ~/.bashrc.d
-
-
-# ==========  PATHS  ==========================================================
-
-export CDPATH=.
-
-PATH=$SCRIPTS_HOME:$($BASHRC_D/bin/dot-config-paths):$BIN_DIR:$PATH
-
-export PATH
 
 

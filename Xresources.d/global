@@ -1,0 +1,24 @@
+! --------  Global  ----------------------------------
+
+Xft.autohint: 0
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rbga: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+
+*background:               #000022
+*foreground:              #d7e3e7
+*cursorColor:              LightBlue
+!*pointerShape:             arrow
+!*pointerColor:             blue
+!*font:                     *-fixed-*-*-*-18-*
+!*font: xft:Bitstream Vera Sans Mono:antialias=true:pixelsize=13:bold
+*.font:           xft:Monospace:size=10:antialias=true
+*.boldFont:       xft:Monospace:size=10:antialias=true:bold
+*.italicFont:     xft:Monospace:size=10:antialias=true:italic
+*.boldItalicFont: xft:Monospace:size=10:antialias=true:bold:italic
+
+

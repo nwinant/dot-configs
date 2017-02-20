@@ -1,0 +1,11 @@
+! Reload: 
+! xrdb ~/.Xresources
+! xrdb -DENV_HOME="${HOME}" -load .Xresources
+
+
+#include ".Xresources.d/global"
+#include ".Xresources.d/xterm"
+#include ".Xresources.d/rxvt-unicode"
+#include ".Xresources.d/emacs"
+
+

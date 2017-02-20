@@ -1,0 +1,20 @@
+! --------  Emacs  ----------------------------------
+
+! See also https://www.gnu.org/software/emacs/manual/html_node/emacs/X-Resources.html
+
+! Important:
+! - emacs program & resources names are case-sensitive.
+! - We override *.font with something safe, or there is a good chance emacs will freak out and die.
+
+emacs.FontBackend: xft
+emacs.font:        Monospace 10
+
+!emacs.menuBar: off
+emacs.toolBar: off
+!emacs.verticalScrollBars: off
+
+!emacs.geometry: 95x80
+!emacs.geometry: 110x111
+!emacs.geometry: 120x64
+
+

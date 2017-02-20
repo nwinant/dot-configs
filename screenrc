@@ -1,0 +1,196 @@
+# .screenrc
+#
+# http://www.gnu.org/software/screen/manual/html_node/String-Escapes.html
+# http://www.gnu.org/software/screen/manual/html_node/Hardware-Status-Line.html
+# http://www.kilobitspersecond.com/2014/02/10/understanding-gnu-screens-hardstatus-strings/
+# https://www.debian-administration.org/article/560/An_introduction_to_the_visual_features_of_GNU_Screen
+# http://aperiodic.net/screen/quick_reference
+
+
+
+# ====================  Display  ==================================================================
+
+# 256 colors:
+term screen-256color
+
+
+
+# ====================  Status  ===================================================================
+
+caption always
+caption string "%{kg} %S%{gk}  %-w%{+b}|%n %t|%{-}%+w"
+
+hardstatus message "[%{=u}%S%{-}]  %t  (%H)"
+
+# http://adb.cba.pl/gnu-screen-tips-page-my.html#howto-escape-status
+# invert colors when escape key active
+# %{+s} is activate when %E is true
+#hardstatus message "%?%E%{+s}%?w[%{=u}%S%{-}]  %t  (%H)"
+
+
+
+# ====================  Unbind keys  ==============================================================
+
+
+# alt right/left arrows
+bindkey "^[[1;3D"
+bindkey "^[[1;3C"
+
+`# alt up/down arrows
+bindkey "^[[1;3A"
+bindkey "^[[1;3B"
+
+# ctrl right/left arrows
+#bindkey "^[[1;5D"
+#bindkey "^[[1;5C"
+
+`# ctrl up/down arrows
+bindkey "^[[1;5A"
+bindkey "^[[1;5B"
+
+# shift right/left arrows
+bindkey "^[[1;2D"
+bindkey "^[[1;2C"
+
+# shift up/down arrows
+bindkey "^[[1;5A"
+bindkey "^[[1;5B"
+
+# Unbind s and CTRL-s (these send the XOFF signal, easy to type accidentally)
+bindkey s
+bindkey ^s
+
+
+
+# ====================  Escape key  ===============================================================
+
+# reset escape key to the default
+#escape ^Aa
+
+# C-z instead of C-a:
+#escape ^za
+
+# Alt-x (and C-|) instead of C-a.
+#escape ^||
+#bindkey "^[x" command
+
+# C-\ instead of C-a:
+#escape ^\\\
+
+# Alt-\ (and C-|) instead of C-a.
+escape ^||
+#bindkey "^[]" command
+bindkey "^[\\" command
+
+## Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
+#escape ^^^^
+
+# Put the following (for example) into your .screenrc to use C-\ as the command key:
+#
+# But be aware that C-\ sends SIGABRT to the foreground process. I ended up killing many programs
+# because of typos and muscle-memory. (fadein)
+#escape ^\\\
+
+
+
+# ====================  Reload config  ============================================================
+
+# C-a R reload config:
+bind R eval "source $HOME/.screenrc" "echo '.screen reloaded!'"
+
+
+
+# ====================  Scroll mode  ==============================================================
+
+# Enable mousewheel scrolling -- http://stackoverflow.com/a/1125947/786623
+#termcapinfo xterm* ti@:te@
+
+screen -h 10000
+
+# PAGE_UP to enter copy mode & move up one page
+bindkey "^[[5~" eval "copy" "stuff ^U"
+
+# Ctrl-UP arrow to enter copy mode & move up one line
+bindkey "^[[1;5A" eval "copy" "stuff ^b"
+
+# Page Up/Page Down to enter copy mode & move one line
+#bindkey "^[[5~" eval "copy" "stuff ^b"
+#bindkey "^[[6~" eval "copy" "stuff ^f"
+
+# Page Up/Page Down to enter copy mode & move one page
+#bindkey "^[[5~" eval "copy" "stuff ^U"
+#bindkey "^[[6~" eval "copy" "stuff ^D"
+
+# Ctrl-Page Up/Page Down to enter copy mode
+#bindkey "^[[5;5~" eval "copy" "stuff ^U"
+#bindkey "^[[6;5~" eval "copy" "stuff ^D"
+
+# Shift-up arrow to enter copy mode & move up one line
+#bindkey "^[[1;5A" eval "copy" "stuff k"
+
+
+
+# ====================  Window switching  =========================================================
+
+# for shift UP and DOWN arrows
+#bindkey ^[[1;2A prev
+#bindkey ^[[1;2B next
+
+# for ctrl right and left arrows
+#bindkey ^[[1;5D prev
+#bindkey ^[[1;5C next
+
+# for shift right and left arrows
+#bindkey ^[[1;2D prev
+#bindkey ^[[1;2C next
+
+# for Alt right and left arrows
+bindkey ^[[1;3D prev
+bindkey ^[[1;3C next
+
+
+
+# ====================  Region splitting & navigation  ============================================
+
+## TAB     Switch between regions
+## S       Split current window
+## X       Close this split window
+## Q       Close all split windows except this one
+
+# Vertical split on escape-|
+bind | split -v
+
+# Shift-ARROW keys navigate regions
+bindkey "^[[1;2A" focus up
+bindkey "^[[1;2B" focus down
+bindkey "^[[1;2D" focus left
+bindkey "^[[1;2C" focus right
+
+# Alt-] cycles through regions
+#bindkey "^[]" focus
+
+# Click region to focus, toggled by Alt-[ / Alt-]
+# (When on, swallows mouse events for drag-select)
+mousetrack off
+bindkey "^[]" mousetrack on
+bindkey "^[[" mousetrack off
+
+
+
+# ====================  Region resizing  ==========================================================
+
+# F2 puts Screen into resize mode. Resize regions using hjkl keys.
+bindkey "^[OQ" eval "command -c rsz" # enter resize mode
+
+# Arrow keys to resize current region: left/down is small, right/up is bigger
+bind -c rsz -k kl eval "resize -h -5" "command -c rsz"
+bind -c rsz -k kr eval "resize -h +5" "command -c rsz"
+bind -c rsz -k ku eval "resize -v +5" "command -c rsz"
+bind -c rsz -k kd eval "resize -v -5" "command -c rsz"
+
+# Auto-resize window
+# ctrl-a F
+# Reattach with -A to resize all windows
+
+
+

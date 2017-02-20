@@ -1,0 +1,22 @@
+! --------  XTerm  ----------------------------------
+
+!XTerm*termName: screen-256color
+XTerm*geometry:                 130x30
+
+! Set up scrollbars - get them, get them on the right side, and be
+! able to scroll them with the right,left, or middle mouse button
+XTerm*ScrollBar: on
+*XTerm*scrollBar: true
+XTerm*rightScrollBar: true
+XTerm*multiScroll: on
+XTerm*jumpScroll: on
+XTerm*scrollbar.Translations: #override \n\
+  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
+  :MoveThumb() NotifyThumb() \n\
+  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
+  :MoveThumb() NotifyThumb() \n\
+  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
+  :MoveThumb() NotifyThumb() \n\
+  :NotifyScroll(Proportional) EndScroll()
+
+
