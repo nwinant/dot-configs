@@ -62,7 +62,7 @@ Installation
 ------------
 
 ````
-dotconfigs=~/.${USERNAME}.d
+dotconfigs=~/.${USER}.d
 git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
 
 # Dirs
