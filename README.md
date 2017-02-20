@@ -15,6 +15,11 @@ Basic principles
 Key bindings
 ------------
 
+Applications:
+
+    Ctl-F1     Term
+    Ctl-F3     Emacs client
+
 Audio:
 
     Win-F10    Mute
@@ -40,6 +45,8 @@ Install various essentials:
 
     brew install rxvt-unicode
     brew install emacs --cocoa
+    #brew install Caskroom/cask/xquartz
+    #brew install homebrew/x11/meld
 
 Set XQuartz to do default to urxvt:
 
@@ -61,16 +68,19 @@ Various tweaks via the UI:
 Installation
 ------------
 
-````
 dotconfigs=~/.${USER}.d
 git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
 
 # Dirs
-ln -s ${dotconfigs}/Xresources.d ~/.Xresources.d
+ln -s ${dotconfigs}/Xresources.d  ~/.Xresources.d
+ln -s ${dotconfigs}/bashrc.d      ~/.bashrc.d
+ln -s ${dotconfigs}/emacs.d       ~/.emacs.d
 
 # Files
-ln -s ${dotconfigs}/Xresources ~/.Xresources
-
-````
+ln -s ${dotconfigs}/Xresources    ~/.Xresources
+ln -s ${dotconfigs}/bashrc        ~/.bashrc
+ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
+ln -s ${dotconfigs}/screenrc      ~/.screenrc
+ln -s ${dotconfigs}/vimrc         ~/.vimrc
 
 
