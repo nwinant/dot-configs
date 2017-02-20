@@ -68,19 +68,19 @@ Various tweaks via the UI:
 Installation
 ------------
 
-dotconfigs=~/.${USER}.d
-git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
+    dotconfigs=~/.${USER}.d
+    git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
 
-# Dirs
-ln -s ${dotconfigs}/Xresources.d  ~/.Xresources.d
-ln -s ${dotconfigs}/bashrc.d      ~/.bashrc.d
-ln -s ${dotconfigs}/emacs.d       ~/.emacs.d
+    # Dirs
+    ln -s ${dotconfigs}/Xresources.d  ~/.Xresources.d
+    ln -s ${dotconfigs}/bashrc.d      ~/.bashrc.d
+    ln -s ${dotconfigs}/emacs.d       ~/.emacs.d
 
-# Files
-ln -s ${dotconfigs}/Xresources    ~/.Xresources
-ln -s ${dotconfigs}/bashrc        ~/.bashrc
-ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
-ln -s ${dotconfigs}/screenrc      ~/.screenrc
-ln -s ${dotconfigs}/vimrc         ~/.vimrc
+    # Files
+    ln -s ${dotconfigs}/Xresources    ~/.Xresources
+    ln -s ${dotconfigs}/bashrc        ~/.bashrc
+    ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
+    ln -s ${dotconfigs}/screenrc      ~/.screenrc
+    ln -s ${dotconfigs}/vimrc         ~/.vimrc
 
 
