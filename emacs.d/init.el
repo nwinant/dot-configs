@@ -1,17 +1,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Misc emacs customizations
+;; Emacs customizations
 ;;
 ;; This file should be loaded automatically. If not, add this to .emacs (or whatever):
 ;;
-;;   (load-file "/home/nwinant/.emacs.d/init.el")
+;;   (load-file "~/.emacs.d/init.el")
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;/usr/share/emacs/24.5/etc/themes/tango-dark-theme.el
 
-;;;;;;;;;;;;;;;;;;;;;
-;; Custom configs
-;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;
+;; Load custom configs
+;;;;;;;;;;;;;;;;;;;;;;;
 
 (load-theme 'manoj-dark t)
 (set-face-attribute 'default nil :background "#2e3436") ;; background of tango-dark
@@ -21,22 +20,24 @@
 (load "display-config")
 (load "shell-utils")
 
-;(require 'shell-utils)
-;(require 'load-directory)
 
 
-;; Adding MELPA-STABLE for markdown-mode:
-;; * http://jblevins.org/projects/markdown-mode/
-;; * https://www.emacswiki.org/emacs/MarkdownMode
+;;;;;;;;;;;;;;;;;;;;;
+;; Load packages
+;;;;;;;;;;;;;;;;;;;;;
+
 (require 'package)
-;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-;(add-to-list 'package-archives
-;             '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
+;; (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+;; 			 ("marmalade" . "https://marmalade-repo.org/packages/")
+;; 			 ;("melpa" . "http://melpa.org/packages/")))
+;; 			 ("melpa-stable" . "https://stable.melpa.org/packages/")))
+(setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-;; Evil...
+(package-initialize)
+;; package-install: 
+;;   evil  (requires melpa, not melpa-stable)
+;;   markdown-mode
+
 (require 'evil)
 (evil-mode 1)
 
