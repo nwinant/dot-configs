@@ -3,3 +3,8 @@
 
 # Packaging
 .cask
+
+# local override directories
+/local
+*/local
+
