@@ -75,8 +75,10 @@ Installation
     ln -s ${dotconfigs}/Xresources.d  ~/.Xresources.d
     ln -s ${dotconfigs}/bashrc.d      ~/.bashrc.d
     ln -s ${dotconfigs}/emacs.d       ~/.emacs.d
+    ln -s ${dotconfigs}/vim           ~/.vim
 
     # Files
+    ln -s ${dotconfigs}/inputrc       ~/.inputrc
     ln -s ${dotconfigs}/Xresources    ~/.Xresources
     ln -s ${dotconfigs}/bashrc        ~/.bashrc
     ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
