@@ -18,8 +18,40 @@ filetype plugin indent on
 
 " View all installed colorschemes:
 " :colo [space] [ctl-d]
+" :he cterm-colors
+" :he highlight-groups
+" :he group-name
+" :he cterm-colors
+
+"set t_Co=256
 
 syntax on
+"colorscheme blue
+"colorscheme darkblue
+"colorscheme default
+"colorscheme delek
+"colorscheme desert
+"colorscheme elflord
+"colorscheme evening
+"colorscheme industry
+"colorscheme koehler
+"colorscheme morning
+"colorscheme murphy
+"colorscheme pablo
+"colorscheme peachpuff
+"colorscheme ron
+"colorscheme shine
+"colorscheme slate
+"colorscheme torte
+"colorscheme zellner
+
+"set background=dark
+"set background=light
+"highlight Normal ctermbg=None ctermfg=white
+highlight LineNr ctermbg=none ctermfg=black
+highlight Search cterm=underline gui=underline ctermbg=darkblue ctermfg=white
+highlight CursorLine term=bold cterm=bold
+"highlight CursorColumn term=bold cterm=bold ctermbg=none
 
 
 """ =======  Key bindings  ====================================================
@@ -32,11 +64,12 @@ set softtabstop=0 " # of spaces/tab when editing
 set shiftwidth=2  " # of columns to indent text
 
 """ UI
-"set number     " show line numbers
-"set cursorline " highlight current line
-set showcmd    " show command in bottom bar
-set wildmenu   " visual autocomplete
-set showmatch  " highlight matching [{()}]
+set number       " show lines numbers
+set cursorline   " highlight current line
+"set cursorcolumn " highlight current col
+set showcmd      " show command in bottom bar
+set wildmenu     " visual autocomplete
+set showmatch    " highlight matching [{()}]
 
 """ Search
 set incsearch  " search as characters are entered
