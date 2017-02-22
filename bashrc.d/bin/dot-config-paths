@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail    ## "strict mode": exit on command errors or undefined variables
-
-#BASHRC_D=~/.bashrc.d
-
-echo ${BASHRC_D}/lib:${BASHRC_D}/bin
-
-

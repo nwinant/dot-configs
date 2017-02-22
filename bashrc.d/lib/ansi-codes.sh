@@ -53,3 +53,15 @@ BOLD_CYAN="\[\033[1;36m\]"
 NO_COLOR="\[\033[0m\]"
 
 
+# tput colors
+#----------------
+
+TPUT_BLACK=0
+TPUT_RED=1
+TPUT_GREEN=2
+TPUT_YELLOW=3
+TPUT_BLUE=4
+TPUT_MAGENTA=5
+TPUT_CYAN=6
+TPUT_WHITE=7
+

@@ -29,6 +29,48 @@ Audio:
     (OSX: Just F10/F11/F12)
 
 
+Directory structure
+-------------------
+
+Basics:
+
+* `~/.bashrc.d` for configuration (and scripts specific to configuration)
+* `~/bin` for third-party executables
+* `~/scripts` for custom scripts
+* Any bash files under `**/lib` are sourced, but not added to path.
+* Any bash files immediately under `~/.bashrc` are sourced _after_ `**/lib`, but not added to path.
+* All other directories are added to path.
+
+Full directory structure, where `PLATFORM` is one of `osx, linux, freebsd`:
+
+* `.bashrc.d/`
+* `.bashrc.d/PLATFORM`
+* `.bashrc.d/bin`
+* `.bashrc.d/bin/PLATFORM`
+* `.bashrc.d/lib`
+* `.bashrc.d/lib/PLATFORM`
+* `.bashrc.d/local`
+* `.bashrc.d/local/bin`
+* `.bashrc.d/local/lib`
+* `bin`
+* `scripts`
+* `scripts/PLATFORM`
+* `scripts/lib`
+* `scripts/lib/PLATFORM`
+* `scripts/local`
+* `scripts/local/lib`
+
+`bin` and `scripts` directories are assumed to be present, and are not created or symlinked.
+
+Directories are sourced or added to `PATH` with the following precedence, if they exist:
+
+1. local directories (e.g., `.bashrc.d/local`, `scripts/local`)
+2. PLATFORM directories (e.g., `.bashrc.d/osx`, `scripts/osx`)
+3. Default directories (e.g., `.bashrc.d`, `scripts`)
+
+In other words, machine-specific (local) can override platform-specific, which can override default. By definition, local directories are ignored by this git repository.
+
+
 Environment prep
 -----------------
 
@@ -39,14 +81,14 @@ Manually install the absolute basics:
 1. Google chrome, because c'mon: https://www.google.com/chrome
 2. XQuartz:   https://www.xquartz.org/
 3. Homebrew:  http://brew.sh/
-4. Oh My Zsh: http://ohmyz.sh/
+4. Meld:      https://yousseb.github.io/meld/
 
 Install various essentials:
 
     brew install rxvt-unicode
     brew install emacs --cocoa
-    #brew install Caskroom/cask/xquartz
-    #brew install homebrew/x11/meld
+    brew install markdown
+    brew install git bash-completion
 
 Set XQuartz to do default to urxvt:
 
@@ -82,6 +124,7 @@ Installation
     ln -s ${dotconfigs}/Xresources    ~/.Xresources
     ln -s ${dotconfigs}/bashrc        ~/.bashrc
     ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
+    ln -s ${dotconfigs}/gitexcludes   ~/.gitexcludes
     ln -s ${dotconfigs}/screenrc      ~/.screenrc
     ln -s ${dotconfigs}/vimrc         ~/.vimrc
 
