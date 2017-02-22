@@ -39,7 +39,27 @@
 ;;   markdown-mode
 
 (require 'evil)
-(evil-mode 1)
+(evil-mode 1)  ;; toggled per-buffer by C-:
+
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Basic gloss
+;;;;;;;;;;;;;;;;;;;;;
+
+(defun bark-at-user (msg)
+  (message "%s" (propertize
+		 msg 'face '(:background "orange" :foreground "black"))))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Mouse stuff
+;;;;;;;;;;;;;;;;;;;;;
+
+(setq select-active-regions   t)
+(setq mouse-drag-copy-region  t)
+(setq x-select-enable-primary nil)
 
 
 
@@ -49,13 +69,21 @@
 ;;
 ;; *  C-shift-F1  :  Launch new shell
 ;; *  C-shift-F3  :  Cycle through shells, or create one if there are none.
-;; *  C-=         :  Run visual diff on current directory (default tool is meld)  
+;; *  C-=         :  Run visual diff on current directory (default tool is meld)
+;; *  C-:         :  Evil mode (toggle)
 ;;
 (global-set-key (kbd "C-<f1>") 'run-new-shell)
 (global-set-key (kbd "C-<f3>") 'alt-shell-dwim)
 (add-hook 'shell-mode-hook 'run-shell-init)
 (global-set-key (kbd "C-=") 'diff-current-dir-visual)
 (global-set-key (kbd "C-?") 'show-cheatsheet)
+(global-set-key (kbd "C-:") 'evil-local-mode)
+
+;; This drives me nuts, so let's disable it:
+(global-set-key (kbd "C-x C-c")
+		(lambda ()
+		  (interactive)
+		  (bark-at-user "NOPE! To quit: M-x kill-emacs")))
 
 
 
