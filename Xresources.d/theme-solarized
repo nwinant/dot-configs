@@ -1,6 +1,7 @@
 
 !! See: http://blog.liangzan.net/blog/2012/01/19/my-solarized-themed-arch-linux-setup/
 !!      http://bastian.rieck.ru/blog/posts/2013/making_urxvt_beautiful/
+!!      http://ethanschoonover.com/solarized
 
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
@@ -41,8 +42,12 @@
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-*background:            S_base03
-*foreground:            S_base00
+*background:            S_base02
+!*background:            S_base03
+!*background:            S_base2
+!*foreground:            S_base00
+*foreground:            S_base1
+!*foreground:            S_base3
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
