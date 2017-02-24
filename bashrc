@@ -44,7 +44,7 @@ export HISTFILESIZE=$(($HISTSIZE * 10))
 
 source_file() {
   local file=$1
-  if [ -e "${file}" ]; then
+  if [ -f "${file}" ]; then
     source $file
   fi
 }
@@ -93,9 +93,14 @@ export PATH
 
 # ==========  SOURCE EXTERNAL CONFIGS  ========================================
 
-#source_file /usr/local/git/contrib/completion/git-completion.bash
-#GIT_PS1_SHOWDIRTYSTATE=true
-#export PS1='[\u@mbp \w$(__git_ps1)]\$ '
+##  Attempt to source bash_completion for git (used for PS1)
+if [[ $PS1 ]]; then
+  source_file /usr/share/bash-completion/bash_completion
+  #source_file /usr/local/etc/bash_completion.d/git-completion.bash
+  #source_file /usr/local/git/contrib/completion/git-completion.bash
+  source_file /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+  source_file /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
+fi
 
 source_bash_dir ${BASHRC_D}/lib
 source_bash_dir ${BASHRC_D}

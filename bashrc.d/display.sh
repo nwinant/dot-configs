@@ -17,26 +17,19 @@ xterm*|rxvt*)
 esac
 
 
-##   https://gist.github.com/trey/2722934
-
-source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
-source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
-#source /usr/local/etc/bash_completion.d/git-completion.bash
-#source /usr/local/git/contrib/completion/git-completion.bash
-GIT_PS1_SHOWDIRTYSTATE=true
-#export PS1='[\u@mbp \w$(__git_ps1)]\$ '
-
-
-
-#YELLOW="\[$(tput setaf 3)\]"
-#RESET="\[$(tput sgr0)\]"
-
-#PS1="\h:\W \u\$(__git_ps1 \" ${YELLOW}(%s)${RESET} \")\$ "
 
 #COLOR1=$BROWN
 #BG_COLOR=${BG_BLACK}
 BG_COLOR=${BG_DEFAULT}
 COLOR1="\[\033[${ATTR_NONE};${FG_YELLOW};${BG_COLOR}m\]"
+
+
+##   https://gist.github.com/trey/2722934
+GIT_PS1_SHOWDIRTYSTATE=true
+#export PS1='[\u@mbp \w$(__git_ps1)]\$ '
+#YELLOW="\[$(tput setaf 3)\]"
+#RESET="\[$(tput sgr0)\]"
+#PS1="\h:\W \u\$(__git_ps1 \" ${YELLOW}(%s)${RESET} \")\$ "
 #GIT_COLOR="\[\033[${ATTR_NONE};${FG_GREEN};${BG_COLOR}m\]"
 GIT_COLOR="\[$(tput setaf $TPUT_GREEN)\]"
 
