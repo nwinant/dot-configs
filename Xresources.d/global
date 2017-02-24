@@ -8,10 +8,10 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+!*background:               #000022
+!*foreground:              #d7e3e7
+!*cursorColor:              LightBlue
 
-*background:               #000022
-*foreground:              #d7e3e7
-*cursorColor:              LightBlue
 !*pointerShape:             arrow
 !*pointerColor:             blue
 !*font:                     *-fixed-*-*-*-18-*
