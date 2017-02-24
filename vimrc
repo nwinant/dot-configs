@@ -51,6 +51,7 @@ colorscheme solarized
  ""
 
 ""  Syntax highlighting
+highlight Normal                          ctermbg=None
 "highlight Normal      ctermfg=white
 "highlight Comment     ctermfg=DarkBlue
 "highlight Comment     ctermfg=Black
@@ -62,7 +63,8 @@ colorscheme solarized
 "highlight Constant    ctermfg=DarkGreen
 
 ""  Search & navigation highlighting
-highlight CursorLine                                        cterm=bold
+"highlight CursorLine                                        cterm=bold
+highlight CursorLine                      ctermbg=None      cterm=bold
 highlight IncSearch   ctermfg=black       ctermbg=yellow    cterm=bold
 highlight Search      ctermfg=white       ctermbg=darkblue
 
