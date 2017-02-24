@@ -17,10 +17,12 @@ term screen-256color
 
 # ====================  Status  ===================================================================
 
+##  Term title
+hardstatus message "[ %t (%n)  <  %{=u}%S%{-} ]  (%H)"
+
+##  Display bar
 caption always
 caption string "%{kg} %S%{gk}  %-w%{+b}|%n %t|%{-}%+w"
-
-hardstatus message "[%{=u}%S%{-}]  %t  (%H)"
 
 # http://adb.cba.pl/gnu-screen-tips-page-my.html#howto-escape-status
 # invert colors when escape key active

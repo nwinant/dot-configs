@@ -19,7 +19,8 @@ if [ "$TERMNAME" ]; then
 fi
 
 if [ "$STY" ]; then
-  name="[ ${STY#*.} > $(screen -Q title) ${WINDOW} ] $(hostname):"
+  #name="[ ${STY#*.} > $(screen -Q title) ${WINDOW} ] $(hostname):"
+  name="[ $(screen -Q title) (#${WINDOW})  <  ${STY#*.} ] $(hostname):"
 fi
 
 #echo -en "${name}$(pwd)        $(date +"%F %T"):    $prev_cmd"
