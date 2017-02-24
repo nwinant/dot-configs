@@ -39,6 +39,9 @@ syntax on              " Enable syntax highlighting
 set laststatus=2       " Always display the status line
 set background=dark    " Does my terminal have a dark background? Survey says: YES!
 
+"syntax enable
+colorscheme solarized
+
 ""|  View all installed colorschemes:
  "|  
  "|    :colo [space] [ctl-d]
@@ -48,14 +51,15 @@ set background=dark    " Does my terminal have a dark background? Survey says: Y
  ""
 
 ""  Syntax highlighting
-highlight Normal      ctermfg=white
-highlight Comment     ctermfg=DarkBlue
-highlight Type        ctermfg=Green
-highlight Statement   ctermfg=DarkYellow
-highlight Special     ctermfg=LightGray
-highlight Identifier  ctermfg=DarkCyan
-highlight PreProc     ctermfg=DarkCyan
-highlight Constant    ctermfg=DarkGreen
+"highlight Normal      ctermfg=white
+"highlight Comment     ctermfg=DarkBlue
+"highlight Comment     ctermfg=Black
+"highlight Type        ctermfg=Green
+"highlight Statement   ctermfg=DarkYellow
+"highlight Special     ctermfg=LightGray
+"highlight Identifier  ctermfg=DarkCyan
+"highlight PreProc     ctermfg=DarkCyan
+"highlight Constant    ctermfg=DarkGreen
 
 ""  Search & navigation highlighting
 highlight CursorLine                                        cterm=bold
@@ -77,7 +81,7 @@ set cursorline        " Highlight current line
 set showcmd           " Show command in bottom bar
 set wildmenu          " Visual autocomplete
 set showmatch         " Highlight matching [{()}]
-"set number           " Show lines numbers
+set number           " Show lines numbers
 "set cursorcolumn     " Highlight current col
 
 ""  Search
