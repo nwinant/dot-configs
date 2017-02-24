@@ -11,7 +11,7 @@
 
 !URxvt*termName: xterm
 URxvt.termName:         rxvt-256color
-URxvt*geometry:                 130x30
+URxvt*geometry:                 130x60
 
 ! Set up scrollbars
 URxvt*scrollBar: on
