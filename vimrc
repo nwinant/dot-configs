@@ -67,6 +67,7 @@ highlight Normal                          ctermbg=None
 highlight CursorLine                      ctermbg=None      cterm=bold
 highlight IncSearch   ctermfg=black       ctermbg=yellow    cterm=bold
 highlight Search      ctermfg=white       ctermbg=darkblue
+highlight ColorColumn                     ctermbg=0
 
 
 ""  [====[  Other assorted settings  ]============================================================]
@@ -85,6 +86,7 @@ set wildmenu          " Visual autocomplete
 set showmatch         " Highlight matching [{()}]
 set number           " Show lines numbers
 "set cursorcolumn     " Highlight current col
+set colorcolumn=100
 
 ""  Search
 set incsearch         " Search as characters are entered
