@@ -107,7 +107,7 @@ bind R eval "source $HOME/.screenrc" "echo '.screen reloaded!'"
 # Enable mousewheel scrolling -- http://stackoverflow.com/a/1125947/786623
 #termcapinfo xterm* ti@:te@
 
-screen -h 10000
+defscrollback 10000 # use a 10,000 line scrollback buffer
 
 # PAGE_UP to enter copy mode & move up one page
 bindkey "^[[5~" eval "copy" "stuff ^U"
