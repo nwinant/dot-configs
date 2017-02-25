@@ -15,7 +15,7 @@ export BIN_HOME=${BIN_HOME:-~/bin}
 export SCRIPTS_HOME=${SCRIPTS_HOME:-~/scripts}
 export SCRIPTS_HOME_LOCAL=${SCRIPTS_HOME_LOCAL:-${SCRIPTS_HOME}/local}
 
-platform='unknown'
+PLATFORM='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
   OS_DIR="linux"
