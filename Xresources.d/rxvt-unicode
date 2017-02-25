@@ -1,71 +1,135 @@
-! --------  UXrvt  ----------------------------------
+!!!  [[==========================================================================================]]
+!!!  [[    rxvt-unicode                                                                          ]]
+!!!  [[==========================================================================================]]
+!!!  
+!!|  http://manpages.ubuntu.com/manpages/precise/man1/urxvt.1.html
+!!|  http://www.askapache.com/linux/rxvt-xresources/
+!!|  http://u.askapache.com/2013/07/Xresources.txt
+!!|  https://sdkmvx.wordpress.com/2008/08/13/rxvt-unicode-terminal-colors/
+!!|  http://www.astrobetter.com/blog/2010/08/25/xterm-color/
+!!|  http://510x.se/notes/posts/Configuring_and_using_rxvt-unicode/
+!!|  https://linux.die.net/man/1/urxvt
+!!|  
+!!|  urxvt --help 2>&1| sed -n '/:  /s/^ */! URxvt*/gp'
+!!!
+!!!!![[------------------------------------------------------------------------------------------]]
+ 
 
-! http://manpages.ubuntu.com/manpages/precise/man1/urxvt.1.html
-! http://www.askapache.com/linux/rxvt-xresources/
-! http://u.askapache.com/2013/07/Xresources.txt
-! https://sdkmvx.wordpress.com/2008/08/13/rxvt-unicode-terminal-colors/
-! http://www.astrobetter.com/blog/2010/08/25/xterm-color/
-! http://510x.se/notes/posts/Configuring_and_using_rxvt-unicode/
-!
-! urxvt --help 2>&1| sed -n '/:  /s/^ */! URxvt*/gp'
+
+!!  [====[  General  ]============================================================================]
 
 !URxvt*termName: xterm
-URxvt.termName:         rxvt-256color
-URxvt*geometry:                 130x60
-
-! Set up scrollbars
-URxvt*scrollBar: on
-*URxvt*scrollBar: true
-URxvt*scrollBar_right: true
-!URxvt*multiScroll: on
-!URxvtURxvt*jumpScroll: on
-URxvt*scrollColor: #777777
-!URxvt*scrollstyle: plain
-!URxvt*scrollTtyKeypress: true
-!URxvt*scrollTtyOutput: false
-!URxvt*scrollWithBuffer: false
-!URxvt*secondaryScreen: true
-!URxvt*secondaryScroll: true
-!URxvt*skipScroll: true
-URxvt*scrollBar_floating: false
-
-URxvt*visualBell: true
-URxvt*urgentOnBell: false
-URxvt*underlineColor: yellow
-URxvt*internalBorder: 1
-!URxvt.borderColor: #ffffff
-!URxvt.saveLines:        4095
+URxvt.termName:  rxvt-256color
+URxvt*geometry:  110x60
 
 
+!!  [====[  Appearance  ]=========================================================================]
 
-!URxvt.keysym.C-Delete:          \033[3~
+!!  General appearance
+!!  ------------------
+!URxvt.letterSpace:    -1
+URxvt.borderColor:     #000011
+URxvt*internalBorder:  2
+
+!!  Transparency
+!!  ------------
+URxvt*background:    rgba:0000/0000/2000/f500
+URxvt*depth:         32
+
+!!  Visual feedback
+!!  ---------------
+URxvt*underlineColor:  yellow
+URxvt*urgentOnBell:    false
+URxvt*visualBell:      true
+
+!!  Fading
+!!  ------
+!!  Fade the text by the given percentage when focus is lost
+!URxvt*fading:     30
+URxvt*fading:      15
+!!  Fade to this colour, when fading is used (see fading:). The default colour is black
+!URxvt*fadeColor:  Green
+
+
+!!  [====[  Scrolling  ]==========================================================================]
+
+!!  Scrolling
+!!  ---------
+!URxvt*jumpScroll:         true
+!URxvt*multiScroll:        true
+URxvt.saveLines:           10240
+!URxvt*skipScroll:         true
+!URxvt*scrollTtyKeypress:  true
+!URxvt*scrollTtyOutput:    false    !! Scroll with output?
+!URxvt*scrollWithBuffer:   false    !! Scroll in relation to buffer? (mouse scroll of Shift+PgUp)
+
+!!  Scrollbar appearance
+!!  --------------------
+URxvt*scrollBar:           true
+URxvt*scrollBar_floating:  false
+URxvt*scrollBar_right:     true
+URxvt*scrollColor:         #777777
+!!  Scrollbar style: rxvt, plain, next, or xterm
+URxvt*scrollstyle:         plain
+URxvt*thickness:           10
+
+!!  Secondary screens
+!!  -----------------
+!!  Allow secondary screens (e.g., GNU Screen, less), and disable URxvt scrolling for them.
+!!  Note that *secondaryWheel is only available via patches:
+!!          https://wiki.archlinux.org/index.php/Rxvt-unicode#Scrollback_buffer_in_secondary_screen
+URxvt*secondaryScreen:  true
+URxvt*secondaryScroll:  false
+URxvt*secondaryWheel:   true     !! Counterintuitively, this must be set to true
+
+
+!!  [====[  Extensions  ]=========================================================================]
+
+!!  Enable plugins
+!!  --------------
+URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard,clipboard
+
+!!  Clickable URLs
+!!  --------------
+!URxvt.url-launcher:   /usr/bin/xdg-open
+URxvt.url-launcher:    google-chrome
+URxvt.matcher.button:  1
+
+!!  Clipboard
+!!  ---------
+!URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c:         perl:clipboard:copy
+URxvt.keysym.M-v:         perl:clipboard:paste
+
+
+!!  Tab colors
+!!  ----------
+URxvt.tabbed.tabbar-fg:  0
+URxvt.tabbed.tabbar-bg:  16
+URxvt.tabbed.tab-fg:     2
+URxvt.tabbed.tab-bg:     8
+
+!!  Disable all Perl extensions
+!!  ---------------------------
+!URxvt.perl-ext:
+!URxvt.perl-ext-common:
+
+
+!!  [====[  Custom key bindings  ]================================================================]
+
+!!  General bindings
+!!  ----------------
 !urxvt*.deleteIsDEL: false
 
-!urxvt.letterSpace: -1
+!!  Disable ISO 14755 & keycap picture insert modes
+!!  https://wilmer.gaa.st/blog/archives/36-rxvt-unicode-and-ISO-14755-mode.html
+!!  https://www.reddit.com/r/urxvt/comments/35x03n/if_youve_been_vexed_by_urxvts_picture_insert_mode/
+!!  ---------------------------------------------------------------------------
+URxvt.iso14755:    false
+URxvt.iso14755_52: false
 
-! Set the scrollbar width in pixels.
-! URxvt*thickness:                      number
-URxvt*thickness:                      15
-
-! Fade the text by the given percentage when focus is lost
-URxvt*fading:                           30
-
-! Fade to this colour, when fading is used (see fading:). The default colour is black
-! URxvt*fadeColor:                        Green
-
-!URxvt*saveLines:12000 
-!URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=13 
-!URxvt*font:-*-courier-medium-r-normal-*-*-140-*-*-*-*-iso8859-1 
-!URxvt*boldFont:-*-courier-bold-r-normal-*-*-140-*-*-*-*-iso8859-1 
-!URxvt*scrollstyle: rxvt
-
-URxvt*depth: 32
-URxvt*background: rgba:0000/0000/2000/f500
-
-
-
-! -----------------  Pass keys through...  ------------
-
+!!  Pass keys through...
+!!  --------------------
 URxvt.keysym.M-Up:          \033[1;3A
 URxvt.keysym.M-Down:        \033[1;3B
 URxvt.keysym.M-Right:       \033[1;3C
@@ -81,6 +145,19 @@ URxvt.keysym.Shift-Down:    \033[1;2B
 URxvt.keysym.Shift-Right:   \033[1;2C
 URxvt.keysym.Shift-Left:    \033[1;2D
 
+!URxvt.keysym.C-Delete:          \033[3~
+
+
+!!  [====[  Standard key bindings  ]==============================================================]
+
+!!  Tabs
+!!  ----
+!!  Shift+Down      New tab
+!!  Shift+Left      Go to left tab
+!!  Shift+Right     Go to right tab
+!!  Ctrl+Left       Move tab to the left
+!!  Ctrl+Right      Move tab to the right
+!!  Ctrl+d          Close tab
 
 
 

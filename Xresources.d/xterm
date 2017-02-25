@@ -1,22 +1,58 @@
-! --------  XTerm  ----------------------------------
+!!!  [[==========================================================================================]]
+!!!  [[     XTerm                                                                                ]]
+!!!  [[==========================================================================================]]
+!!!  
+!!|  http://www.leonerd.org.uk/hacks/hints/xterm-sensible.html
+!!!
+!!!!![[------------------------------------------------------------------------------------------]]
+ 
 
+!!  Basics
+!!  ------
 !XTerm*termName: screen-256color
-XTerm*geometry:                 130x30
+XTerm*geometry:  130x60
 
-! Set up scrollbars - get them, get them on the right side, and be
-! able to scroll them with the right,left, or middle mouse button
+
+!!  Appearance
+!!  ----------
+!*VT100*background:      gray5
+!*VT100*foreground:      gray70
+!*VT100*faceName:        DejaVu Sans Mono
+!*VT100*faceSize:        10
+!*VT100*underLine:       true
+
+
+!!  Scrollback
+!!  ----------
+!*VT100*saveLines:       1000
+!*VT100*scrollBar:       true
+
+
+!!  8-bit characters
+!!  http://www.leonerd.org.uk/hacks/hints/xterm-8bit.html
+!!  -----------------------------------------------------
+!*VT100*eightBitControl: false
+!*VT100*eightBitInput:   false
+!*VT100*eightBitOutput:  true
+!*VT100*utf8:            1
+
+
+!!  Set up scrollbars - get them, get them on the right side, and be
+!!  able to scroll them with the right,left, or middle mouse button
+!!  ----------------------------------------------------------------
 XTerm*ScrollBar: on
 *XTerm*scrollBar: true
 XTerm*rightScrollBar: true
 XTerm*multiScroll: on
 XTerm*jumpScroll: on
-XTerm*scrollbar.Translations: #override \n\
-  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
-  :MoveThumb() NotifyThumb() \n\
-  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
-  :MoveThumb() NotifyThumb() \n\
-  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
-  :MoveThumb() NotifyThumb() \n\
-  :NotifyScroll(Proportional) EndScroll()
+!XTerm*scrollbar.Translations: #override \n\
+!  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
+!  :MoveThumb() NotifyThumb() \n\
+!  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
+!  :MoveThumb() NotifyThumb() \n\
+!  :StartScroll(Continous) MoveThumb() NotifyThumb()\n\
+!  :MoveThumb() NotifyThumb() \n\
+!  :NotifyScroll(Proportional) EndScroll()
+
 
 
