@@ -1,11 +1,20 @@
 
 
+# ==========  >>>BEGIN<<< IF-SKIP-PERSONAL-BASHRC ...  ========================
+
+### I.e., does some external process want these guts to be skipped?
+
+if [[ "${PS1:-}" != "SPOOFED" ]]; then
+  ## NOTE: We don't indent the rest of the file, because that would be a giant
+  ##       gross hassle...
+
+
 # ==========  DOT-CONFIG VARS  ================================================
 
 export DOT_CONFIGS=${DOT_CONFIGS:-~/.$USER.d}
 export DOT_CONFIGS_LOCAL=${DOT_CONFIGS_LOCAL:-$DOT_CONFIGS/local}
 
-#export BASHRC_D=${BASHRC_D:-$DOT_CONFIGS/bashrc.d}
+export BASHRC_D=${BASHRC_D:-$DOT_CONFIGS/bashrc.d}
 export BASHRC_D=${BASHRC_D:-~/.bashrc.d}
 export BASHRC_D_LOCAL=${BASHRC_D_LOCAL:-$BASHRC_D/local}
 export BASHRC_LOCAL=${BASHRC_LOCAL:-$DOT_CONFIGS_LOCAL/bashrc}
@@ -30,11 +39,13 @@ fi
 
 # ==========  VARS  ===========================================================
 
+#export INPUTRC=~/.inputrc
+#export INPUTRC=/etc/inputrc
 export EDITOR=emacs
 export SVN_EDITOR=vim
 export BROWSER=google-chrome
 export HISTIGNORE="ls:pwd:clear:history:h"
-export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S  '
+export HISTTIMEFORMAT='| %Y-%m-%d %H:%M:%S |  '
 export HISTSIZE=40000
 export HISTFILESIZE=$(($HISTSIZE * 10))
 #export HISTCONTROL="erasedups:ignorespace"
@@ -117,5 +128,13 @@ if [ -d "${BASHRC_D_LOCAL}" ]; then
   source_bash_dir ${BASHRC_D_LOCAL}
 fi
 
+
+# ==========  >>>END<<< ... IF-SKIP-PERSONAL-BASHRC  ==========================
+
+## Wherein we close the if-block that started this file:
+
+fi
+
+## ... ta-daaaaa!
 
 
