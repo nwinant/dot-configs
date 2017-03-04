@@ -110,7 +110,7 @@ Various tweaks via the UI:
 Installation
 ------------
 
-    dotconfigs=~/.${USER}.d
+    dotconfigs=~/.edc.d
     git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
 
     # Dirs
