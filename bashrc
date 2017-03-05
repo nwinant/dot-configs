@@ -67,6 +67,9 @@ export BASHRC_LOCAL=${DEFAULT_BASHRC_LOCAL:-$EDC_HOME_LOCAL/bashrc}
 
 export BIN_HOME=${DEFAULT_BIN_HOME:-~/bin}
 
+export ALIASES_HOME=${DEFAULT_ALIASES_HOME:-~/aliases}
+export ALIASES_HOME_LOCAL=${DEFAULT_ALIASES_HOME_LOCAL:-${ALIASES_HOME}/local}
+
 export SCRIPTS_HOME=${DEFAULT_SCRIPTS_HOME:-~/scripts}
 export SCRIPTS_HOME_LOCAL=${DEFAULT_SCRIPTS_HOME_LOCAL:-${SCRIPTS_HOME}/local}
 
@@ -115,15 +118,15 @@ if [ "$PLATFORM" != "unknown" ]; then
   add_path_dir "${BASHRC_D}/bin/${OS_DIR}"
 fi
 
-PATH=$SCRIPTS_HOME:$SCRIPTS_HOME/aliases:$BASHRC_D_LOCAL/bin:$PATH
+PATH=$SCRIPTS_HOME:$ALIASES_HOME:$BASHRC_D_LOCAL/bin:$PATH
 
 if [ "$PLATFORM" != "unknown" ]; then
-  add_path_dir "${SCRIPTS_HOME}/aliases/${OS_DIR}"
+  add_path_dir "${ALIASES_HOME}/${OS_DIR}"
   add_path_dir "${SCRIPTS_HOME}/${OS_DIR}"
 fi
 
 # Add local script & bin paths
-PATH=$SCRIPTS_HOME_LOCAL:$SCRIPTS_HOME_LOCAL/aliases:$BIN_HOME/:$PATH
+PATH=$SCRIPTS_HOME_LOCAL:$ALIASES_HOME_LOCAL:$BIN_HOME:$PATH
 
 export PATH
 
