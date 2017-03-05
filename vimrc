@@ -51,7 +51,7 @@ colorscheme solarized
  ""
 
 ""  Syntax highlighting
-highlight Normal                          ctermbg=None
+highlight Normal       ctermfg=white      ctermbg=None
 "highlight Normal      ctermfg=white
 "highlight Comment     ctermfg=DarkBlue
 "highlight Comment     ctermfg=Black
