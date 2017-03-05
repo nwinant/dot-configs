@@ -53,3 +53,18 @@ fi
 #export PS1="${COLOR1}\!${COLOR2} \t ${COLOR1}\w\$(__git_ps1 \" ${YELLOW}(%s)${RESET}\"):${NO_COLOR} "
 export PS1="${COLOR1}\!${COLOR2} \t ${COLOR1}\w${NO_COLOR}${GIT_PS1}${COLOR1}:${NO_COLOR} "
 
+
+##    OS-specific tuning
+##======================
+
+if [[ "$PLATFORM" == 'osx' ]]; then
+  # FIXME: osX & frebsd only? http://unix.stackexchange.com/questions/2897/clicolor-and-ls-colors-in-bash
+  export CLICOLOR=1
+
+elif [[ "$PLATFORM" == 'freebsd' ]]; then
+  export CLICOLOR=1
+
+#elif [[ "$PLATFORM" == 'linux' ]]; then
+fi
+
+
