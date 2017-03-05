@@ -73,14 +73,15 @@ export SCRIPTS_HOME_LOCAL=${DEFAULT_SCRIPTS_HOME_LOCAL:-${SCRIPTS_HOME}/local}
 PLATFORM='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
-  OS_DIR="linux"
+  PLATFORM="linux"
 elif [[ "$unamestr" == 'FreeBSD' ]]; then
-  OS_DIR="freebsd"
+  PLATFORM="freebsd"
 elif [[ "$unamestr" == 'Darwin' ]]; then
-  OS_DIR="osx"
+  PLATFORM="osx"
 else
-  OS_DIR=""
+  PLATFORM=""
 fi
+OS_DIR="$PLATFORM"
 
 
 ##  [____[  VARS  ]______________________________________________________________________________]
@@ -111,13 +112,13 @@ PATH=$BASHRC_D/bin:$PATH
 
 # Add platform-specific dirs to PATH, if any
 if [ "$PLATFORM" != "unknown" ]; then
-  add_path_dir "${BASHRC_D}/${OS_DIR}/bin"
+  add_path_dir "${BASHRC_D}/bin/${OS_DIR}"
 fi
 
 PATH=$SCRIPTS_HOME:$SCRIPTS_HOME/aliases:$BASHRC_D_LOCAL/bin:$PATH
 
 if [ "$PLATFORM" != "unknown" ]; then
-  add_path_dir "${SCRIPTS_HOME}/${OS_DIR}/aliases"
+  add_path_dir "${SCRIPTS_HOME}/aliases/${OS_DIR}"
   add_path_dir "${SCRIPTS_HOME}/${OS_DIR}"
 fi
 
