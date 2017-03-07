@@ -12,9 +12,11 @@
 
 
 
-##  [____[  <<<BEGIN>>> ... IF-SKIP_EDC_BASHRC  ]________________________________________________]
+##  [====[  <<<BEGIN>>> ... IF-SKIP_EDC_BASHRC  ]================================================]
 
-#SKIP_EDC_BASHRC=blah
+#SKIP_EDC_BASHRC=skip
+shopt -q login_shell && SKIP_EDC_BASHRC="Login shell"
+[[ $- == *i* ]] || SKIP_EDC_BASHRC="Not interactive"
 
 ###  >>>BEGIN<<< IF-SKIP_EDC_BASHRC ... 
  ##
@@ -24,12 +26,14 @@ if [[ -z ${SKIP_EDC_BASHRC+x} ]] && [[ "${PS1:-}" != "SPOOFED" ]]; then
   ##       gross hassle...
 
 
-##  [____[  FUNCTIONS  ]_________________________________________________________________________]
+##  [====[  FUNCTIONS  ]=========================================================================]
 
 source_file() {
   local file=$1
   if [ -f "${file}" ]; then
+    #echo "Sourcing $file"
     source $file
+  #else echo "Could not source $file"
   fi
 }
 
@@ -52,7 +56,7 @@ add_path_dir() {
 }
 
 
-##  [____[  EDC CONFIG VARS  ]___________________________________________________________________]
+##  [====[  EDC CONFIG VARS  ]===================================================================]
 
 export EDC_HOME=${DEFAULT_EDC_HOME:-~/.edc.d}
 export EDC_HOME_LOCAL=${DEFAULT_EDC_HOME_LOCAL:-$EDC_HOME/local}
@@ -87,7 +91,7 @@ fi
 OS_DIR="$PLATFORM"
 
 
-##  [____[  VARS  ]______________________________________________________________________________]
+##  [====[  VARS  ]==============================================================================]
 
 #export INPUTRC=~/.inputrc
 #export INPUTRC=/etc/inputrc
@@ -101,7 +105,7 @@ export HISTFILESIZE=$(($HISTSIZE * 10))
 #export HISTCONTROL="erasedups:ignorespace"
 
 
-##  [____[  PATHS  ]_____________________________________________________________________________]
+##  [====[  PATHS  ]=============================================================================]
 
 export CDPATH=.
 
@@ -111,14 +115,15 @@ source_file "${BASHRC_LOCAL}"
 
 #PATH=$SCRIPTS_HOME:$SCRIPTS_HOME/aliases:$BASHRC_D/bin:$BASHRC_D/aliases:$BIN_HOME:$PATH
 
-PATH=$BASHRC_D/bin:$PATH
+#PATH=$BASHRC_D/bin:$PATH
 
 # Add platform-specific dirs to PATH, if any
-if [ "$PLATFORM" != "unknown" ]; then
-  add_path_dir "${BASHRC_D}/bin/${OS_DIR}"
-fi
+#if [ "$PLATFORM" != "unknown" ]; then
+#  add_path_dir "${BASHRC_D}/bin/${OS_DIR}"
+#fi
 
-PATH=$SCRIPTS_HOME:$ALIASES_HOME:$BASHRC_D_LOCAL/bin:$PATH
+#PATH=$SCRIPTS_HOME:$ALIASES_HOME:$BASHRC_D_LOCAL/bin:$PATH
+PATH=$SCRIPTS_HOME:$ALIASES_HOME:$PATH
 
 if [ "$PLATFORM" != "unknown" ]; then
   add_path_dir "${ALIASES_HOME}/${OS_DIR}"
@@ -131,7 +136,7 @@ PATH=$SCRIPTS_HOME_LOCAL:$ALIASES_HOME_LOCAL:$BIN_HOME:$PATH
 export PATH
 
 
-##  [____[  SOURCE EXTERNAL CONFIGS  ]___________________________________________________________]
+##  [====[  SOURCE EXTERNAL CONFIGS  ]===========================================================]
 
 ##  Attempt to source bash_completion for git (used for PS1)
 if [[ $PS1 ]]; then
@@ -142,6 +147,7 @@ if [[ $PS1 ]]; then
   source_file /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
 fi
 
+source ${SCRIPTS_HOME}/lib/ansi-codes.sh
 source_bash_dir ${BASHRC_D}/lib
 source_bash_dir ${BASHRC_D}
 
@@ -158,7 +164,7 @@ if [ -d "${BASHRC_D_LOCAL}" ]; then
 fi
 
 
-##  [____[  >>>END<<< ... IF-SKIP_EDC_BASHRC  ]__________________________________________________]
+##  [====[  >>>END<<< ... IF-SKIP_EDC_BASHRC  ]==================================================]
 
 ## Wherein we close the if-block that started this file:
 else
