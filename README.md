@@ -15,18 +15,58 @@ Basic principles
 Key bindings
 ------------
 
-Applications:
+```
+General rules for custom bindings:
 
-    Ctl-F1     Term
-    Ctl-F3     Emacs client
+    Win+Alt-[KEY]      : Window manager modifier (Linux, X11, Windows)
+    Cmd+Opt-[KEY]      : Window manager modifier (OSX)
+    Alt-[KEY]          : Multiplexer modifier (GNU screen, tmux)
+    Alt-\              : Multiplexer escape 
+
+Window manager:
+
+    Win-Alt-[ARROW]    : Next/prev workspace
+    Win-Alt-Esc        : Show all windows
+    Win-Alt-`          : Show workspace windows
+    Win-Alt-Tab        : Show application windows
+    Win-Alt-[NUM]      : Switch to workspace [NUM]
+    Win-Alt-Ctl-[NUM]  : Move window to workspace [NUM]
+
+Application windows (Linux):
+
+    Alt-Tab            : Cycle windows
+    Alt-Shift-Tab      : Cycle windows (reverse)
+    Ctl-Tab            : Cycle tabs within an application
+    Ctl-PgDn           : "
+    Ctl-Shift-Tab      : Cycle tabs within an application (reverse)
+    Ctl-PgUp           : "
+
+Application windows (OSX):
+
+    Cmd-Tab            : Cycle windows
+    Cmd-Shift-Tab      : Cycle windows (reverse)
+    Cmd-`              : Cycle windows within an application
+    Cmd-Shift-`        : Cycle windows within an application (reverse)
+    Cmd-Opt-[ARROW]    : Cycle tabs within an application
+    Ctl-Shift-Tab      : Cycle tabs within an application (reverse)
+
+Application launchers:
+
+    Win-Alt-F1         : Term
+    Win-Alt-F2         : Notepad/gedit/etc.
+    Win-Alt-F3         : Emacs client
+    Win-Alt-F5         : Browser, primary profile
+    Win-Alt-F6         : Browser, secondary profile
 
 Audio:
 
-    Win-F10    Mute
-    Win-F11    Volume down
-    Win-F12    Volume up
-
+    Win-Alt-F9         : Pause/Resume
+    Win-Alt-F10        : Mute
+    Win-Alt-F11        : Volume down
+    Win-Alt-F12        : Volume up
+    
     (OSX: Just F10/F11/F12)
+```
 
 
 Directory structure
