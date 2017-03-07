@@ -42,12 +42,19 @@
 #define S_cyan          #2aa198
 #define S_green         #859900
 
+!#define S_base2         #eee8d5
+!#define S_darkwhite     #ddd8d5
+#define S_darkwhite      #ccc8b5
+
 *background:            S_base02
 !*background:            S_base03
 !*background:            S_base2
 !*foreground:            S_base00
-*foreground:            S_base1
+!*foreground:            S_base0
+!*foreground:            S_base1
+!*foreground:            S_base2
 !*foreground:            S_base3
+*foreground:            S_darkwhite
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
@@ -81,6 +88,7 @@
 *color14:               S_base1
 
 !! white dark/light
-*color7:                S_base2
+!*color7:                S_base2
+*color7:                S_darkwhite
 *color15:               S_base3
 

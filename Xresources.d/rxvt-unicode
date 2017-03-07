@@ -38,7 +38,7 @@ URxvt*depth:         32
 
 !!  Visual feedback
 !!  ---------------
-URxvt*underlineColor:  yellow
+URxvt*underlineColor:  DarkCyan
 URxvt*urgentOnBell:    false
 URxvt*visualBell:      true
 
@@ -55,13 +55,17 @@ URxvt*fading:      15
 
 !!  Scrolling
 !!  ---------
+!!! Scroll with output, unless currently viewing the scrollback buffer
+!!! time seq -f 'teeeeeeeeeeeeeeeeeeeeeeeeeeeeeest %g' 1000000
+
 !URxvt*jumpScroll:         true
 !URxvt*multiScroll:        true
-URxvt.saveLines:           10240
+!URxvt.saveLines:           10240
+URxvt.saveLines:           100000
 !URxvt*skipScroll:         true
-!URxvt*scrollTtyKeypress:  true
-!URxvt*scrollTtyOutput:    false    !! Scroll with output?
-!URxvt*scrollWithBuffer:   false    !! Scroll in relation to buffer? (mouse scroll of Shift+PgUp)
+URxvt*scrollTtyOutput:     false    !! Scroll with output?
+URxvt*scrollWithBuffer:    true     !! Scroll in relation to buffer? (mouse scroll or Shift+PgUp)
+URxvt*scrollTtyKeypress:   true
 
 !!  Scrollbar appearance
 !!  --------------------
@@ -89,11 +93,11 @@ URxvt*secondaryWheel:   true     !! Counterintuitively, this must be set to true
 !!  --------------
 URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard,clipboard
 
-!!  Clickable URLs
-!!  --------------
+!!  Clickable URLs (middle mouse button)
+!!  ------------------------------------
 !URxvt.url-launcher:   /usr/bin/xdg-open
 URxvt.url-launcher:    google-chrome
-URxvt.matcher.button:  1
+URxvt.matcher.button:  2
 
 !!  Clipboard
 !!  ---------
@@ -137,8 +141,8 @@ URxvt.keysym.M-Left:        \033[1;3D
 
 URxvt.keysym.Control-Up:    \033[1;5A
 URxvt.keysym.Control-Down:  \033[1;5B
-!URxvt.keysym.Control-Right: \033[1;5C
-!URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left:  \033[1;5D
 
 URxvt.keysym.Shift-Up:      \033[1;2A
 URxvt.keysym.Shift-Down:    \033[1;2B

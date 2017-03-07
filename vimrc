@@ -50,8 +50,32 @@ colorscheme solarized
  "|    :he group-name
  ""
 
+""  http://vimdoc.sourceforge.net/htmldoc/syntax.html
+
 ""  Syntax highlighting
-highlight Normal       ctermfg=white      ctermbg=None
+"highlight Normal      ctermfg=white       ctermbg=None
+highlight Normal      ctermfg=7       ctermbg=None
+highlight Comment     ctermfg=DarkYellow
+"highlight Comment     ctermfg=58
+"highlight Comment     ctermfg=52
+"highlight Comment     ctermfg=21
+"highlight Normal      ctermfg=15          ctermbg=None
+"highlight Normal      ctermfg=white       ctermbg=None
+
+""  --
+
+"highlight Comment     ctermfg=16
+"highlight Normal      ctermfg=64          ctermbg=None
+"highlight Comment     ctermfg=52
+"highlight Type        ctermfg=64
+"highlight Statement   ctermfg=64
+"highlight Special     ctermfg=64
+"highlight Identifier  ctermfg=64
+"highlight PreProc     ctermfg=64
+"highlight Constant    ctermfg=64
+
+""  --
+
 "highlight Normal      ctermfg=white
 "highlight Comment     ctermfg=DarkBlue
 "highlight Comment     ctermfg=Black
@@ -64,15 +88,22 @@ highlight Normal       ctermfg=white      ctermbg=None
 
 ""  Search & navigation highlighting
 "highlight CursorLine                                        cterm=bold
-highlight CursorLine                      ctermbg=None      cterm=bold
+highlight CursorLine                      ctermbg=16      cterm=bold
 highlight IncSearch   ctermfg=black       ctermbg=yellow    cterm=bold
 highlight Search      ctermfg=white       ctermbg=darkblue
-highlight ColorColumn                     ctermbg=0
+highlight ColorColumn                     ctermbg=16
+highlight LineNr      ctermfg=8           ctermbg=None
+"highlight LineNr      ctermfg=58           ctermbg=0
+"highlight LineNr      ctermfg=58           ctermbg=None
+"highlight LineNr      ctermfg=DarkYellow           ctermbg=None
+"set numberwidth=10
+"set relativenumber       " Display lines numbers relative to the cursor
 
 
 ""  [====[  Other assorted settings  ]============================================================]
 
 ""  Tabs & spaces
+""  -------------
 set expandtab         " Use spaces instead of tabs
 set tabstop     =8    " # of visual spaces/tab
 set softtabstop =0    " # of spaces/tab when editing
@@ -80,6 +111,7 @@ set shiftwidth  =2    " # of columns to indent text
 set smarttab          " Tabs are only used for indentation
 
 ""  UI
+""  --
 set cursorline        " Highlight current line
 set showcmd           " Show command in bottom bar
 set wildmenu          " Visual autocomplete
@@ -89,6 +121,7 @@ set number           " Show lines numbers
 set colorcolumn=100
 
 ""  Search
+""  ------
 set incsearch         " Search as characters are entered
 set hlsearch          " Highlight searches
 set ignorecase        " Like, y'know... ignore case

@@ -3,8 +3,8 @@
 ! xrdb -DENV_HOME="${HOME}" -load .Xresources
 
 
+#include ".Xresources.d/theme-solarizedish"
 #include ".Xresources.d/global"
-#include ".Xresources.d/theme-solarized"
 #include ".Xresources.d/xterm"
 #include ".Xresources.d/rxvt-unicode"
 #include ".Xresources.d/emacs"
