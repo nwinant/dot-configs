@@ -28,8 +28,8 @@ Linux/X11:
 
 OSX:
 
-    Cmd-[KEY]          : Window manager modifier (OSX)
-    Cmd+Opt-[KEY]      : Window manager modifier (OSX)
+    Cmd-[KEY]          : Window manager modifier
+    Cmd+Opt-[KEY]      : Window manager modifier
     [F_KEY]            : Window manager function key modifier (i.e., no modifier)
     Opt-[KEY]          : Multiplexer modifier (GNU screen, tmux)
     Opt-\              : Multiplexer escape 
