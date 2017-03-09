@@ -15,14 +15,30 @@ Basic principles
 Key bindings
 ------------
 
-```
 General rules for custom bindings:
+```
+Linux/X11:
 
-    Win+Alt-[KEY]      : Window manager modifier (Linux, X11, Windows)
-    Cmd+Opt-[KEY]      : Window manager modifier (OSX)
+    Win-[KEY]          : Window manager modifier
+    Win+Alt-[KEY]      : Window manager modifier
+    Win-[F_KEY]        : Window manager function key modifier
     Alt-[KEY]          : Multiplexer modifier (GNU screen, tmux)
     Alt-\              : Multiplexer escape 
+    Ctl-[KEY]          : Application modifier
 
+OSX:
+
+    Cmd-[KEY]          : Window manager modifier (OSX)
+    Cmd+Opt-[KEY]      : Window manager modifier (OSX)
+    [F_KEY]            : Window manager function key modifier (i.e., no modifier)
+    Opt-[KEY]          : Multiplexer modifier (GNU screen, tmux)
+    Opt-\              : Multiplexer escape 
+    Ctl-[KEY]          : Application modifier
+
+```
+
+Specific bindings:
+```
 Window manager:
 
     Win-Alt-[ARROW]    : Next/prev workspace
@@ -52,18 +68,20 @@ Application windows (OSX):
 
 Application launchers:
 
-    Win-Alt-F1         : Term
-    Win-Alt-F2         : Notepad/gedit/etc.
-    Win-Alt-F3         : Emacs client
-    Win-Alt-F5         : Browser, primary profile
-    Win-Alt-F6         : Browser, secondary profile
+    Win-F1             : Term
+    Win-F2             : Notepad/gedit/etc.
+    Win-F3             : Emacs client
+    Win-F4             : - none -
+    Win-F5             : Browser, primary profile
+    Win-F6             : Browser, secondary profile
+    Win-SPACE          : Application launcher (quicksilver, etc.)
 
 Audio:
 
-    Win-Alt-F9         : Pause/Resume
-    Win-Alt-F10        : Mute
-    Win-Alt-F11        : Volume down
-    Win-Alt-F12        : Volume up
+    Win-F9             : Pause/Resume
+    Win-F10            : Mute
+    Win-F11            : Volume down
+    Win-F12            : Volume up
     
     (OSX: Just F10/F11/F12)
 ```
