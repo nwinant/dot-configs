@@ -41,30 +41,31 @@ Specific bindings:
 ```
 Window manager:
 
-    Win-Alt-[ARROW]    : Next/prev workspace
-    Win-Alt-Esc        : Show all windows
-    Win-Alt-`          : Show workspace windows
-    Win-Alt-Tab        : Show application windows
-    Win-Alt-[NUM]      : Switch to workspace [NUM]
-    Win-Alt-Ctl-[NUM]  : Move window to workspace [NUM]
+    Win-[ARROW]        : Next/prev workspace
+    Win-Esc            : Show all windows
+    Win-Esc            : Show workspace windows
+    Win-`              : Show application windows
+    Win-[NUM]          : Switch to workspace [NUM]
+    Win-Alt-[NUM]      : Move window to workspace [NUM]
 
 Application windows (Linux):
 
-    Alt-Tab            : Cycle windows
-    Alt-Shift-Tab      : Cycle windows (reverse)
-    Ctl-Tab            : Cycle tabs within an application
-    Ctl-PgDn           : "
-    Ctl-Shift-Tab      : Cycle tabs within an application (reverse)
-    Ctl-PgUp           : "
+    Alt-Tab            : Cycle windows in workspace
+    Alt-Shift-Tab      : Cycle windows in workspace (reverse)
+    Ctl-Tab            : Cycle tabs in application window            (also:  Ctl-PgDn)
+    Ctl-Shift-Tab      : Cycle tabs in application window (reverse)  (also:  Ctl-PgUp)
 
 Application windows (OSX):
 
-    Cmd-Tab            : Cycle windows
-    Cmd-Shift-Tab      : Cycle windows (reverse)
-    Cmd-`              : Cycle windows within an application
-    Cmd-Shift-`        : Cycle windows within an application (reverse)
-    Cmd-Opt-[ARROW]    : Cycle tabs within an application
-    Ctl-Shift-Tab      : Cycle tabs within an application (reverse)
+    Cmd-Tab            : Cycle applications globally
+    Cmd-Shift-Tab      : Cycle applications globally (reverse)
+    Opt-Tab            : Cycle windows in workspace
+    Opt-Shift-Tab      : Cycle windows in workspace (reverse)
+    # Opt-Tab            : Cycle windows in application
+    # Opt-Shift-Tab      : Cycle windows in application (reverse)
+    Ctl-Tab            : Cycle tabs in application window
+    Ctl-Shift-Tab      : Cycle tabs in application window (reverse)
+
 
 Application launchers:
 
@@ -137,9 +138,10 @@ Environment prep
 Manually install the absolute basics:
 
 1. Google chrome, because c'mon: https://www.google.com/chrome
-2. XQuartz:   https://www.xquartz.org/
-3. Homebrew:  http://brew.sh/
-4. Meld:      https://yousseb.github.io/meld/
+2. XQuartz:      https://www.xquartz.org/
+3. Homebrew:     http://brew.sh/
+4. Meld:         https://yousseb.github.io/meld/
+5. Quicksilver:  https://qsapp.com/download.php
 
 Install various essentials:
 
