@@ -57,6 +57,9 @@ Application windows (Linux):
 
 Application windows (OSX):
 
+    NOTE: OSX offer workspace window cycling (Prefs > Keyboard > Shortcuts > Move focus to active 
+          or next windows) but in practice this can be flaky.
+
     Cmd-Tab            : Cycle applications globally
     Cmd-Shift-Tab      : Cycle applications globally (reverse)
     Cmd-Opt-Tab        : Cycle windows in workspace
