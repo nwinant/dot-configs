@@ -59,13 +59,12 @@ Application windows (OSX):
 
     Cmd-Tab            : Cycle applications globally
     Cmd-Shift-Tab      : Cycle applications globally (reverse)
-    Opt-Tab            : Cycle windows in workspace
-    Opt-Shift-Tab      : Cycle windows in workspace (reverse)
-    # Opt-Tab            : Cycle windows in application
-    # Opt-Shift-Tab      : Cycle windows in application (reverse)
+    Cmd-Opt-Tab        : Cycle windows in workspace
+    Cmd-Opt-Shift-Tab  : Cycle windows in workspace (reverse)
+    Opt-Tab            : Cycle windows in application
+    Opt-Shift-Tab      : Cycle windows in application (reverse)
     Ctl-Tab            : Cycle tabs in application window
     Ctl-Shift-Tab      : Cycle tabs in application window (reverse)
-
 
 Application launchers:
 
