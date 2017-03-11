@@ -21,7 +21,8 @@ term screen-256color
 # ====================  Status  ===================================================================
 
 ##  Term title
-hardstatus message "[ %n %t <- %{=u}%S%{-} ]  (%H)"
+#hardstatus message "[ %n %t <- %{=u}%S%{-} ]  (%H)"
+hardstatus message "| %n %t <%{=u}%S%{-} @ %H>"
 
 ##  Display bar
 caption always
