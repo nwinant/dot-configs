@@ -48,6 +48,10 @@ Window manager:
     Win-[NUM]          : Switch to workspace [NUM]
     Win-Alt-[NUM]      : Move window to workspace [NUM]
 
+Multiplexer (GNU screen):
+
+    Alt-[ARROW]        : Cycle windows
+
 Application windows (Linux):
 
     Alt-Tab            : Cycle windows in workspace
