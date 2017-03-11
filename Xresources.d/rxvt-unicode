@@ -91,7 +91,14 @@ URxvt*secondaryWheel:   true     !! Counterintuitively, this must be set to true
 
 !!  Enable plugins
 !!  --------------
-URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard,clipboard
+!!  NOTE: tabbed is disabled. Although kinda nifty, its Ctrl-LEFT/RIGHT bindings completely 
+!!        conflict with the standard forward-word/backward-word bindings, and its not currently
+!!        worth the hassle to override the perl extension per:
+!!        - https://bbs.archlinux.org/viewtopic.php?id=137129
+!!        - https://github.com/kipplepalooza/urxvt-utils
+!!
+!URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard,clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,clipboard
 
 !!  Clickable URLs (middle mouse button)
 !!  ------------------------------------
@@ -102,8 +109,8 @@ URxvt.matcher.button:  2
 !!  Clipboard
 !!  ---------
 !URxvt.clipboard.autocopy: true
-URxvt.keysym.M-c:         perl:clipboard:copy
-URxvt.keysym.M-v:         perl:clipboard:paste
+URxvt.keysym.M-c:          perl:clipboard:copy
+URxvt.keysym.M-v:          perl:clipboard:paste
 
 
 !!  Tab colors
@@ -156,6 +163,9 @@ URxvt.keysym.Shift-Left:    \033[1;2D
 
 !!  Tabs
 !!  ----
+!!  WARNING: Ctrl-LEFT/RIGHT completely conflicts with the standard
+!!           forward-word/backward-word bindings.
+!!
 !!  Shift+Down      New tab
 !!  Shift+Left      Go to left tab
 !!  Shift+Right     Go to right tab
