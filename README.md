@@ -72,6 +72,7 @@ Application windows (OSX):
     Opt-Shift-Tab      : Cycle windows in application (reverse)
     Ctl-Tab            : Cycle tabs in application window
     Ctl-Shift-Tab      : Cycle tabs in application window (reverse)
+    Cmd-=/-            : Increase/decrease text size
 
 Application launchers:
 
@@ -92,6 +93,12 @@ Audio:
     
     (OSX: Just F10/F11/F12)
 ```
+Specific applications:
+````
+Emacs:
+
+    C-x C-=/-          : Increase/decrease text size
+````
 
 
 Directory structure
