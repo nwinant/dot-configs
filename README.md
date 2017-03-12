@@ -114,23 +114,36 @@ Basics:
 * All other directories are added to path.
 
 Full directory structure, where `PLATFORM` is one of `osx, linux, freebsd`:
+    
+    .edc.d/Xresources/
+          /aliases/
+          /bashrc.d/
+                   /PLATFORM/
+                   /bin/
+                       /PLATFORM/
+                   /lib/
+                       /PLATFORM/
+                   /local/
+                         /bin/
+                         /lib/
+          /emacs.d/
+          /local/
+          /PLATFORM/
+          /scripts/
+                  /PLATFORM/
+                  /lib/
+                      /PLATFORM/
+                  /local/
+                        /lib/
+          /vim/
+    .Xresources.d@
+    .bashrc.d@
+    .emacs.d@
+    .vim@
+    aliases@
+    bin
+    scripts@
 
-* `.bashrc.d/`
-* `.bashrc.d/PLATFORM`
-* `.bashrc.d/bin`
-* `.bashrc.d/bin/PLATFORM`
-* `.bashrc.d/lib`
-* `.bashrc.d/lib/PLATFORM`
-* `.bashrc.d/local`
-* `.bashrc.d/local/bin`
-* `.bashrc.d/local/lib`
-* `bin`
-* `scripts`
-* `scripts/PLATFORM`
-* `scripts/lib`
-* `scripts/lib/PLATFORM`
-* `scripts/local`
-* `scripts/local/lib`
 
 `bin` and `scripts` directories are assumed to be present, and are not created or symlinked.
 
