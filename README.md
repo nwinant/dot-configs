@@ -106,35 +106,40 @@ Directory structure
 
 Basics:
 
-* `~/.bashrc.d` for configuration (and scripts specific to configuration)
-* `~/bin` for third-party executables
-* `~/scripts` for custom scripts
-* Any bash files under `**/lib` are sourced, but not added to path.
-* Any bash files immediately under `~/.bashrc` are sourced _after_ `**/lib`, but not added to path.
-* All other directories are added to path.
+* `aliases` contains scripts which wrap calls to other scripts & executables.
+* `bin` contains third-party executables. 
+   This is always a local directory, is assumed to be present, and is not created.
+* `scripts` contains custom scripts.
+* `$PLATFORM` directories contain platform-specific files, 
+   where `$PLATFORM` is one of `osx, linux, freebsd`.
+* `local` directories are machine/installation-specific. 
+   By definition, they are ignored by this git repository.
+* `lib` directories contain files which may be sourced by other scripts,
+   but are not sourced by default.
 
-Full directory structure, where `PLATFORM` is one of `osx, linux, freebsd`:
-    
-    .edc.d/Xresources/
-          /aliases/
-          /bashrc.d/
-                   /PLATFORM/
-                   /bin/
-                       /PLATFORM/
-                   /lib/
-                       /PLATFORM/
-                   /local/
-                         /bin/
-                         /lib/
-          /emacs.d/
-          /local/
-          /PLATFORM/
-          /scripts/
-                  /PLATFORM/
-                  /lib/
-                      /PLATFORM/
-                  /local/
-                        /lib/
+Order of precedence: 
+
+* Aliases override scripts which override third-party files (bin), _except..._
+* Local/machine-specific files override platform-specific files.
+* Platform-specific files override default files.
+
+Full directory structure:
+ 
+    .edc.d/Xresources
+          /aliases
+          /bashrc.d
+                   /$PLATFORM
+                   /local
+          /emacs.d
+                  /local
+          /local
+          /osx
+          /scripts
+                  /$PLATFORM
+                  /lib
+                      /$PLATFORM
+                  /local
+                        /lib
           /vim/
     .Xresources.d@
     .bashrc.d@
@@ -144,16 +149,21 @@ Full directory structure, where `PLATFORM` is one of `osx, linux, freebsd`:
     bin
     scripts@
 
+Directories which are sourced (highest precedence first):
 
-`bin` and `scripts` directories are assumed to be present, and are not created or symlinked.
+* `bashrc.d/local`
+* `bashrc.d/$PLATFORM`
+* `bashrc.d`
 
-Directories are sourced or added to `PATH` with the following precedence, if they exist:
+Directories which are added to PATH (highest precedence first):
 
-1. local directories (e.g., `.bashrc.d/local`, `scripts/local`)
-2. PLATFORM directories (e.g., `.bashrc.d/osx`, `scripts/osx`)
-3. Default directories (e.g., `.bashrc.d`, `scripts`)
-
-In other words, machine-specific (local) can override platform-specific, which can override default. By definition, local directories are ignored by this git repository.
+* `aliases/local`
+* `scripts/local`
+* `bin`
+* `aliases/$PLATFORM`
+* `scripts/$PLATFORM`
+* `aliases`
+* `scripts`
 
 
 Environment prep
