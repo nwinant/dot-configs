@@ -165,6 +165,14 @@ Directories which are added to PATH (highest precedence first):
 * `aliases`
 * `scripts`
 
+File naming conventions:
+
+* Scripts only have a suffix if their implementation matters (e.g., `ansi-codes.sh` contains 
+  variables to be sourced by bash scripts). This makes for cleaner names (IMO) and reduces the
+  likelihood that other code will need to be rewritten if/when a script is rewritten.
+* The `.sh` suffix is used interchangeably with `.bash` because life is too short for 
+  hand-wringing over that.
+
 
 Environment prep
 -----------------
