@@ -15,7 +15,7 @@
 ##  [====[  <<<BEGIN>>> ... IF-SKIP_EDC_BASHRC  ]================================================]
 
 #SKIP_EDC_BASHRC=skip
-shopt -q login_shell && SKIP_EDC_BASHRC="Login shell"
+#shopt -q login_shell && SKIP_EDC_BASHRC="Login shell"
 [[ $- == *i* ]] || SKIP_EDC_BASHRC="Not interactive"
 
 ###  >>>BEGIN<<< IF-SKIP_EDC_BASHRC ... 
