@@ -91,8 +91,12 @@ Audio:
     Win-F11            : Volume down
     Win-F12            : Volume up
     
-    (OSX: Just F10/F11/F12)
-```
+   (OSX: Just F10/F11/F12)
+````
+General application shortcuts:
+````
+    Ctl-Space          : Autocomplete word
+````
 Specific applications:
 ````
 Emacs:
