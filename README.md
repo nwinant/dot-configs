@@ -230,6 +230,7 @@ Installation
     # Files
     ln -s ${dotconfigs}/inputrc       ~/.inputrc
     ln -s ${dotconfigs}/Xresources    ~/.Xresources
+    ln -s ${dotconfigs}/xsessionrc    ~/.xsessionrc
     ln -s ${dotconfigs}/bashrc        ~/.bashrc
     ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
     ln -s ${dotconfigs}/gitexcludes   ~/.gitexcludes

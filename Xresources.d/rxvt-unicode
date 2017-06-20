@@ -98,7 +98,7 @@ URxvt*secondaryWheel:   true     !! Counterintuitively, this must be set to true
 !!        - https://github.com/kipplepalooza/urxvt-utils
 !!
 !URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard,clipboard
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard,clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 
 !!  Clickable URLs (middle mouse button)
 !!  ------------------------------------
