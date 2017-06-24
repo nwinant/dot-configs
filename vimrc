@@ -92,6 +92,7 @@ highlight CursorLine                      ctermbg=16      cterm=bold
 highlight IncSearch   ctermfg=black       ctermbg=yellow    cterm=bold
 highlight Search      ctermfg=white       ctermbg=darkblue
 highlight ColorColumn                     ctermbg=16
+"highlight OverLength                      ctermbg=16
 highlight LineNr      ctermfg=8           ctermbg=None
 "highlight LineNr      ctermfg=58           ctermbg=0
 "highlight LineNr      ctermfg=58           ctermbg=None
@@ -118,7 +119,8 @@ set wildmenu          " Visual autocomplete
 set showmatch         " Highlight matching [{()}]
 set number           " Show lines numbers
 "set cursorcolumn     " Highlight current col
-set colorcolumn=100
+set colorcolumn=80,100
+"match OverLength /\%<81v.\%>80v/
 
 ""  Search
 ""  ------
