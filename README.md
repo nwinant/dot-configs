@@ -193,13 +193,15 @@ Manually install the absolute basics:
 
 Install various essentials:
 
+    brew update
+    brew install bash                   ## Update to bash 4
     brew install rxvt-unicode
     brew install emacs --cocoa
     brew install markdown
     brew install git bash-completion
 
 Set XQuartz to do default to urxvt:
-
+ 
     defaults write org.macosforge.xquartz.X11 app_to_run $(which urxvt)
 
 Various tweaks via the UI:

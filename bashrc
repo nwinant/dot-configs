@@ -1,10 +1,9 @@
 ###|  EDC ~/.bashrc
  ##|  
- ##|  See:  https://github.com/nwinant/dot-configs
+ ##|  See:  https://github.com/nwinant/edc-configs
  ##|  
  ##|  Author: Nathan Winant <nw@exegetic.net>
  ###
-
 
 ##====|  Utility functions  |================================================##
 
@@ -28,7 +27,6 @@ log_err() {
 log_warn() {
   print_log_msg "WARN " "$@"
 }
-
 
 ##|  Source file, if it exists.
  #|  
@@ -69,35 +67,20 @@ determine_platform() {
   esac
 }
 
-
 ##====|  Init functions  |===================================================##
 
-edc_setup_home() {
-  export edc_home=${default_edc_home:-~/.edc.d}
-  export edc_home_local=${default_edc_home_local:-$edc_home/local}
-  ##|  Source pre-hook:
-  safely_source "$edc_home_local/bashrc-pre-hook"
-}
-
 edc_setup_vars() {
+  export edc_home=${default_edc_home:-~/.edc.d}
+  local_edc_home=${default_local_edc_home:-$edc_home/local}
+
   #log_timestamp_format='%Y%m%d-%H:%M:%S'
   log_script_name=" [$( basename ${BASH_SOURCE[0]} )]"
 
   export platform=$( determine_platform )
   export user_full_name=${USER}
 
-  #export bashrc_d=${default_bashrc_d:-$edc_home/bashrc.d}
-  export bashrc_d=${default_bashrc_d:-~/.bashrc.d}
-  export bashrc_d_local=${default_bashrc_d_local:-$bashrc_d/local}
-  export bashrc_local=${default_bashrc_local:-$edc_home_local/bashrc}
-
-  export bin_home=${default_bin_home:-~/bin}
-
-  export aliases_home=${default_aliases_home:-~/aliases}
-  export aliases_home_local=${default_aliases_home_local:-${aliases_home}/local}
-
-  export scripts_home=${default_scripts_home:-~/scripts}
-  export scripts_home_local=${default_scripts_home_local:-${scripts_home}/local}
+  ##|  Source pre-hook:
+  safely_source "$local_edc_home/bashrc-pre-hook"
 
   if [[ "${platform}" == 'linux' ]]; then
     user_full_name=$( getent passwd $LOGNAME | cut -d: -f5 | cut -d, -f1 )
@@ -112,36 +95,32 @@ edc_setup_vars() {
 }
 
 edc_setup_paths() {
-  local -r os_dir="$platform"
-
-}
-
-edc_setup_paths() {
-  local -r os_dir="$platform"
+  bashrc_d=${default_bashrc_d:-~/.bashrc.d}
+  aliases_home=${default_aliases_home:-${edc_home}/aliases}
+  bin_home=${default_bin_home:-${edc_home}/bin}
+  lib_home=${default_lib_home:-${edc_home}/lib}
+  local local_aliases_home=${default_local_aliases_home:-~/aliases}
+  local local_bin_home=${default_local_bin_home:-~/bin}
+  local local_scripts_home=${default_local_scripts_home:-~/scripts}
+  local os_dir="$platform"
 
   ##|  Read local bashrc, if present, allowing config vars to be overridden
    #|  before making it into the PATH:
-  safely_source "${bashrc_local}"
+  safely_source "${default_local_bashrc:-$local_edc_home/bashrc}"
 
-  #PATH=${scripts_home}:${scripts_home}/aliases:${bashrc_d}/bin:${bashrc_d}/aliases:${bin_home}:$PATH
-
-  #PATH=${bashrc_d}/bin:$PATH
+  ##|  These should always be on the path:
+  PATH=$aliases_home:$bin_home:$PATH
 
   ##|  Add platform-specific dirs to PATH, if any:
-  #if [ "$PLATFORM" != "unknown" ]; then
-  #  prepend_dir_to_path "${bashrc_d}/bin/${os_dir}"
-  #fi
-
-  #PATH=$scripts_home:$aliases_home:$bashrc_d_local/bin:$PATH
-  PATH=$scripts_home:$aliases_home:$PATH
-
   if [ "$platform" != "unknown" ]; then
     prepend_dir_to_path "${aliases_home}/${os_dir}"
-    prepend_dir_to_path "${scripts_home}/${os_dir}"
+    prepend_dir_to_path "${bin_home}/${os_dir}"
   fi
 
-  ##|  Add local script & bin paths:
-  PATH=$scripts_home_local:$aliases_home_local:$bin_home:$PATH
+  ##|  Add any local dirs:
+  prepend_dir_to_path "${local_bin_home}"
+  prepend_dir_to_path "${local_aliases_home}"
+  prepend_dir_to_path "${local_scripts_home}"
 }
 
 edc_export_bash_vars() {
@@ -165,6 +144,7 @@ edc_export_bash_vars() {
 }
 
 edc_source_post_hooks() {
+  local -r local_bashrc_d=${default_local_bashrc_d:-$local_edc_home/bashrc.d}
   local -r os_dir="$platform"
   ##|  Attempt to source bash_completion for git (used for PS1)
   if [[ $PS1 ]]; then
@@ -177,7 +157,7 @@ edc_source_post_hooks() {
     safely_source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
   fi
 
-  source ${scripts_home}/lib/ansi-codes.sh
+  source ${lib_home}/ansi-codes.sh
   source_bash_dir ${bashrc_d}/lib
   source_bash_dir ${bashrc_d}
 
@@ -188,20 +168,24 @@ edc_source_post_hooks() {
   fi
 
   ##|  Source local files, if any
-  if [ -d "${bashrc_d_local}" ]; then
-    source_bash_dir ${bashrc_d_local}/lib
-    source_bash_dir ${bashrc_d_local}
+  if [ -d "${local_bashrc_d}" ]; then
+    source_bash_dir ${local_bashrc_d}/lib
+    source_bash_dir ${local_bashrc_d}
   fi
 }
 
 edc_main() {
-  edc_setup_home
+  local edc_home
+  local local_edc_home
+  local aliases_home
+  local bin_home
+  local bashrc_d
+  local lib_home
   edc_setup_vars
   edc_setup_paths
   edc_export_bash_vars
   edc_source_post_hooks
 }
-
 
 ##====|  Execute  |==========================================================##
 
