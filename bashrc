@@ -124,6 +124,8 @@ edc_setup_paths() {
 }
 
 edc_export_bash_vars() {
+  export docs_home=${default_docs_home:-${edc_home}/docs}
+  export templates_home=${default_templates_home:-${edc_home}/templates}
   export PATH
 
   ##|  Ensure there are no surprises when we cd:
@@ -178,8 +180,8 @@ edc_main() {
   local edc_home
   local local_edc_home
   local aliases_home
-  local bin_home
   local bashrc_d
+  local bin_home
   local lib_home
   edc_setup_vars
   edc_setup_paths
