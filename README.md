@@ -194,7 +194,7 @@ Manually install the absolute basics:
 Install various essentials:
 
     brew update
-    brew install bash                   ## Update to bash 4
+    brew install bash                   ##|  Update to bash 4
     brew install rxvt-unicode
     brew install emacs --cocoa
     brew install markdown
@@ -223,20 +223,20 @@ Installation
     dotconfigs=~/.edc.d
     git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
 
-    # Dirs
-    ln -s ${dotconfigs}/Xresources.d  ~/.Xresources.d
+    ##|  Dirs
     ln -s ${dotconfigs}/bashrc.d      ~/.bashrc.d
     ln -s ${dotconfigs}/emacs.d       ~/.emacs.d
     ln -s ${dotconfigs}/vim           ~/.vim
+    ln -s ${dotconfigs}/Xresources.d  ~/.Xresources.d
 
-    # Files
-    ln -s ${dotconfigs}/inputrc       ~/.inputrc
-    ln -s ${dotconfigs}/Xresources    ~/.Xresources
-    ln -s ${dotconfigs}/xsessionrc    ~/.xsessionrc
+    ##|  Files
     ln -s ${dotconfigs}/bashrc        ~/.bashrc
     ln -s ${dotconfigs}/gitconfig     ~/.gitconfig
     ln -s ${dotconfigs}/gitexcludes   ~/.gitexcludes
+    ln -s ${dotconfigs}/inputrc       ~/.inputrc
     ln -s ${dotconfigs}/screenrc      ~/.screenrc
     ln -s ${dotconfigs}/vimrc         ~/.vimrc
+    ln -s ${dotconfigs}/Xresources    ~/.Xresources
+    ln -s ${dotconfigs}/xsessionrc    ~/.xsessionrc
 
 
