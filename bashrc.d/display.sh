@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 
-##    PROMPTS
-##===========
+###|  PROMPTS
+###==========
 
 get_term_title() {
   export PREVIOUS_COMMAND="$(sed -e 's/[[:space:]]*$//' <<<$(fc -nl -0))"
@@ -16,13 +16,10 @@ xterm*|rxvt*)
   ;;
 esac
 
-
-
 #COLOR1=$BROWN
 #BG_COLOR=${BG_BLACK}
 BG_COLOR=${BG_DEFAULT}
 COLOR1="\[\033[${ATTR_NONE};${FG_YELLOW};${BG_COLOR}m\]"
-
 
 ##   https://gist.github.com/trey/2722934
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -35,7 +32,7 @@ GIT_COLOR="\[$(tput setaf $TPUT_GREEN)\]"
 
 if [ `whoami` = "root" ]
 then
-        COLOR1=$RED
+  COLOR1=$RED
 fi
 #COLOR2=$GRAY
 COLOR2="\[\033[${ATTR_NONE};${FG_WHITE};${BG_COLOR}m\]"
@@ -54,16 +51,32 @@ fi
 export PS1="${COLOR1}\!${COLOR2} \t ${COLOR1}\w${NO_COLOR}${GIT_PS1}${COLOR1}:${NO_COLOR} "
 
 
-##    OS-specific tuning
-##======================
+###|  LS & grep
+###============
 
-if [[ "$PLATFORM" == 'osx' ]]; then
-  # FIXME: osX & frebsd only? http://unix.stackexchange.com/questions/2897/clicolor-and-ls-colors-in-bash
+##|  OS X & FreeBSD only
+##|  See http://unix.stackexchange.com/questions/2897/clicolor-and-ls-colors-in-bash
+setup_ls_colors_bsd () {
   export CLICOLOR=1
+}
 
-elif [[ "$PLATFORM" == 'freebsd' ]]; then
-  export CLICOLOR=1
+##|  See http://man7.org/linux/man-pages/man5/dir_colors.5.html
+setup_ls_colors_linux () {
+  if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    export LS_COLORS="tw=40:ow=1;34;40"  ##|  Ensures directory colors are not-obnoxious
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+  fi
+}
 
-#elif [[ "$PLATFORM" == 'linux' ]]; then
+if [[ "$platform" == 'osx' ]]; then
+  setup_ls_colors_bsd 
+elif [[ "$platform" == 'freebsd' ]]; then
+  setup_ls_colors_bsd
+elif [[ "$platform" == 'linux' ]]; then
+  setup_ls_colors_linux
 fi
 
