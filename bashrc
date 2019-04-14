@@ -133,7 +133,7 @@ edc_export_bash_vars() {
 
   #export INPUTRC=~/.inputrc
   #export INPUTRC=/etc/inputrc
-  export EDITOR=emacs
+  export EDITOR=vim
   export SVN_EDITOR=vim
   export BROWSER=google-chrome
 
