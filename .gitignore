@@ -1,10 +1,17 @@
-# Compiled
+##  Compiled
 *.elc
 
-# Packaging
+##  Packaging
 .cask
 
-# local override directories
+##  edc.d aliases
+aliases
+bin
+edc-utils
+lib
+templates
+
+##  Local override directories
 /local
 */local
 
@@ -17,5 +24,6 @@
 */_*
 *-OLD
 
+##  Cruft
 .DS_Store
 
