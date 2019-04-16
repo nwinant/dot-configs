@@ -5,7 +5,7 @@ Various configuration whatnot.
 
 
 Basic principles
-----------------
+================
 
 1. Vim uses standard vim key bindings. One of its strengths is its ubiquity, so no there's no cause to introduce non-standard muscle memory.
 2. Emacs includes evil-mode. Again: muscle memory.
@@ -13,7 +13,7 @@ Basic principles
 
 
 Key bindings
-------------
+============
 
 General rules for custom bindings:
 ```
@@ -106,7 +106,7 @@ Emacs:
 
 
 Directory structure
--------------------
+===================
 
 Basics:
 
@@ -179,9 +179,10 @@ File naming conventions:
 
 
 Environment prep
------------------
+================
 
-### OS X
+OS X
+----
 
 Manually install the absolute basics:
 
@@ -210,15 +211,46 @@ Various tweaks via the UI:
 2. Set function keys to behave like... functions keys: https://support.apple.com/en-us/HT204436 
 3. Map Caps Lock to Ctrl: System Preferences > Keyboard > Modifier Key
 
+### iTerm2
 
-### Windows
+iTerm2 is just rad: <https://iterm2.com/downloads.html>
+
+Fix the keybindings so that `OPT-ARROW` will skip words & emacs will behave sanely:
+
+1. Go to `Preferences...` > `Profiles` > `Keys`
+2. Press `Load Preset...`
+3. Select `Natural Text Editing`
+
+See:
+
+* <https://apple.stackexchange.com/questions/154292/iterm-going-one-word-backwards-and-forwards>
+
+
+Windows
+-------
+
+Windows installation is refreshingly simple:
 
 1. Install babun: http://babun.github.io/
 2. Suffer.
 
+***Update:*** [Suffer even more](https://github.com/babun/babun/issues/868).
+
+### Windows Subsystem for Linux (WSL)
+
+I must grudgingly admit that WSL does make things a fair bit better on Win 10.
+
+See:
+
+* https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+### Cmder
+
+Not too shabby: https://cmder.net/
+
 
 Installation
-------------
+============
 
     dotconfigs=~/.edc.d
     git clone https://github.com/nwinant/dot-configs.git ${dotconfigs}
