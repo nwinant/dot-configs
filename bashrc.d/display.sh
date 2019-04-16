@@ -51,20 +51,21 @@ fi
 export PS1="${COLOR1}\!${COLOR2} \t ${COLOR1}\w${NO_COLOR}${GIT_PS1}${COLOR1}:${NO_COLOR} "
 
 
-###|  LS & grep
+###|  ls & grep
 ###============
 
-##|  OS X & FreeBSD only
-##|  See http://unix.stackexchange.com/questions/2897/clicolor-and-ls-colors-in-bash
-setup_ls_colors_bsd () {
-  export CLICOLOR=1
-}
-
-##|  See http://man7.org/linux/man-pages/man5/dir_colors.5.html
+##|  GNU Linux colors
+ #|  
+ #|  See: http://man7.org/linux/man-pages/man5/dir_colors.5.html
+ #|       http://www.bigsoft.co.uk/blog/2008/04/11/configuring-ls_colors
+ #|       https://www.gnu.org/software/coreutils/manual/html_node/General-output-formatting.html
+ ##
 setup_ls_colors_linux () {
   if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    export LS_COLORS="tw=40:ow=1;34;40"  ##|  Ensures directory colors are not-obnoxious
+    #export LS_COLORS="tw=40:ow=1;34;40:ln=target"  ##|  Ensures directory colors are not-obnoxious
+    local -r di="40"  ##|  Ensures directory colors are not-obnoxious
+    export LS_COLORS="di=${di}:tw=${di}:ow=1;34;${di}:ln=target"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -72,11 +73,57 @@ setup_ls_colors_linux () {
   fi
 }
 
-if [[ "$platform" == 'osx' ]]; then
-  setup_ls_colors_bsd 
-elif [[ "$platform" == 'freebsd' ]]; then
-  setup_ls_colors_bsd
-elif [[ "$platform" == 'linux' ]]; then
-  setup_ls_colors_linux
+##|  OS X / BSD / FreeBSD colors
+ #|  
+ #|  See: http://unix.stackexchange.com/questions/2897/clicolor-and-ls-colors-in-bash
+ #|       http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
+ #|       https://superuser.com/questions/416835/how-can-i-grep-with-color-in-mac-os-xs-terminal
+ ##
+setup_ls_colors_bsd () {
+  ##    a black
+  ##    b red
+  ##    c green
+  ##    d brown
+  ##    e blue
+  ##    f magenta
+  ##    g cyan
+  ##    h light grey
+  ##    A bold black, usually shows up as dark grey
+  ##    B bold red
+  ##    C bold green
+  ##    D bold brown, usually shows up as yellow
+  ##    E bold blue
+  ##    F bold magenta
+  ##    G bold cyan
+  ##    H bold light grey; looks like bright white
+  ##    x default foreground or background
+  ##
+  ## Defaults: export LSCOLORS="exfxcxdxbxegedabagacad"
+  ##                            ex fx cx dx bx eg ed ab ag ac ad
+  ##    di = ex     1. directory
+  ##    ln = fx     2. symbolic link
+  ##    so = cx     3. socket
+  ##    pi = dx     4. pipe
+  ##    ex = bx     5. executable
+  ##    bd = eg     6. block special
+  ##    cd = ed     7. character special
+  ##       = ab     8. executable with setuid bit set (su u+s SETUID?)
+  ##       = ag     9. executable with setgid bit set (sg g+s SETGID?)
+  ##    tw = ac    10. directory writable to others, with sticky bit (+t,o+w)
+  ##    ow = ad    11. directory writable to others, without sticky bit (o+w) 
+  local -r di="Ex"     ##  ex
+  local -r ln="fx"     ##  fx
+  local -r ex="Cx"     ##  bx
+  local -r tw="ac"     ##  ac
+  local -r ow="ad"     ##  ad
+  export LSCOLORS="${di}${ln}cxdx${ex}egedabag${tw}${ow}"
+  export CLICOLOR=1
+  export GREP_OPTIONS='--color=always'
+  #export GREP_COLOR='1;35;40'
+}
+
+if   [[ "$platform" == 'linux'   ]] ; then setup_ls_colors_linux
+elif [[ "$platform" == 'osx'     ]] ; then setup_ls_colors_bsd 
+elif [[ "$platform" == 'freebsd' ]] ; then setup_ls_colors_bsd
 fi
 
