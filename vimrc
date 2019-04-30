@@ -161,10 +161,11 @@ nnoremap <silent> <leader><space> :nohlsearch<CR>          | ""|  \-SPACE Search
 nnoremap <silent> <leader>#       :call ToggleBling()<CR>  | ""|  \-#     Toggle line nums, etc.
 
 ""|  Force use of hjkl, with arrow keys providing documentation.
-noremap <Left>  :echo 'Nope! Use --> [h] j  k  l  <--'<CR>
-noremap <Down>  :echo 'Nope! Use -->  h [j] k  l  <--'<CR>
-noremap <Up>    :echo 'Nope! Use -->  h  j [k] l  <--'<CR>
-noremap <Right> :echo 'Nope! Use -->  h  j  k [l] <--'<CR>
+" ... Turns out, this becomes unspeakably annoying!
+"noremap <Left>  :echo 'Nope! Use --> [h] j  k  l  <--'<CR>
+"noremap <Down>  :echo 'Nope! Use -->  h [j] k  l  <--'<CR>
+"noremap <Up>    :echo 'Nope! Use -->  h  j [k] l  <--'<CR>
+"noremap <Right> :echo 'Nope! Use -->  h  j  k [l] <--'<CR>
 
 ""|  Streamline switching between splits by dropping the leading C-w
 nnoremap <C-h> <C-w><C-h>
